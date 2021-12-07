@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_flutter/models/Transaction.dart';
+
 import 'new_transaction.dart';
 import 'transaction_list.dart';
 
@@ -12,11 +13,19 @@ class MyApp extends StatelessWidget {
       title: "상품주문앱",
       home: MyHomePage(),
       theme: ThemeData(
-          primaryColor: Colors.green,
-          accentColor: Colors.red,
-          textTheme: ThemeData.light().textTheme.copyWith(headline1: TextStyle(fontFamily: 'Quicksnad', fontSize: 20, fontWeight: FontWeight.bold)),
+          primaryColor: Colors.teal,
+          accentColor: Colors.black,
+          textTheme: ThemeData.light().textTheme.copyWith(
+              headline1: TextStyle(
+                  fontFamily: 'Quicksnad',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold)),
           fontFamily: 'Quicksand',
-          appBarTheme: AppBarTheme(titleTextStyle: TextStyle(fontFamily: 'OpenSans', fontSize: 20, fontWeight: FontWeight.bold))),
+          appBarTheme: AppBarTheme(
+              titleTextStyle: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold))),
     );
   }
 }
@@ -30,7 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Transaction> userTransactions = [];
 
   void _addTransaction(String title, double amount) {
-    var newTx = Transaction(id: DateTime.now().toString(), title: title, amount: amount, date: DateTime.now());
+    var newTx = Transaction(
+        id: DateTime.now().toString(),
+        title: title,
+        amount: amount,
+        date: DateTime.now());
     setState(() {
       userTransactions.add(newTx);
     });
@@ -55,10 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("상품주문앱"),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [TransactionList(userTransactions)],
-      ),
+      body: TransactionList(userTransactions),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

@@ -21,6 +21,7 @@ class _NewTransactionState extends State<NewTransaction> {
       return;
     }
 
+    // 부모위젯 -> 펑션콜을 한다.
     widget.addTx(enteredTitle, enteredContent);
     Navigator.of(context).pop();
   }
@@ -43,7 +44,10 @@ class _NewTransactionState extends State<NewTransaction> {
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
             ),
-            FlatButton(textColor: Colors.purple, onPressed: () => submitData, child: Text('등록'))
+            FlatButton(
+                textColor: Colors.purple,
+                onPressed: submitData,
+                child: Text('등록'))
           ],
         ));
   }
