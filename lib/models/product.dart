@@ -1,3 +1,8 @@
+
+/**
+ * 상품
+ *
+ */
 class Product {
   final String id;
   final String title;
@@ -6,5 +11,10 @@ class Product {
   final String imageUrl;
   bool isFavorite = false;
 
-  Product({required this.id, required this.title, required this.description, required this.price, required this.imageUrl});
+  Product(
+      {required this.id,
+      required this.title,
+      required this.description,
+      required this.price,
+      required this.imageUrl});
 }
