@@ -3,7 +3,6 @@ import 'package:quiz_flutter/models/product.dart';
 import 'package:quiz_flutter/widgets/product_item.dart';
 
 class ProductOverviewScreen extends StatelessWidget {
-
   final List<Product> loadedProducts = [
     Product(
       id: 'p1',
@@ -47,13 +46,13 @@ class ProductOverviewScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             // 가로 방향 아이템 갯수.
-            crossAxisCount: 2, 
-            // 가로 세로 비율 
-            childAspectRatio: 1 / 1, 
+            crossAxisCount: 2,
+            // 가로 세로 비율
+            childAspectRatio: 1 / 1,
             // 가로 방향 아이템 사이 간격
-            crossAxisSpacing: 0, 
+            crossAxisSpacing: 0,
             // 세로 방향 아이템 사이 간격.
-            mainAxisSpacing: 0), 
+            mainAxisSpacing: 0),
         itemBuilder: (ctx, i) => ProductItem(
           id: loadedProducts[i].id,
           title: loadedProducts[i].title,
