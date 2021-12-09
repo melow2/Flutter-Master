@@ -50,9 +50,9 @@ class ProductOverviewScreen extends StatelessWidget {
             // 가로 세로 비율
             childAspectRatio: 1 / 1,
             // 가로 방향 아이템 사이 간격
-            crossAxisSpacing: 0,
+            crossAxisSpacing: 10,
             // 세로 방향 아이템 사이 간격.
-            mainAxisSpacing: 0),
+            mainAxisSpacing: 10),
         itemBuilder: (ctx, i) => ProductItem(
           id: loadedProducts[i].id,
           title: loadedProducts[i].title,
