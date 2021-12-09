@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 /**
  * 상품
  *
  */
-class Product with ChangeNotifier{
+class Product with ChangeNotifier {
   final String id;
   final String title;
   final String description;
@@ -24,5 +23,4 @@ class Product with ChangeNotifier{
     isFavorite = !isFavorite;
     notifyListeners();
   }
-  
 }

@@ -11,20 +11,18 @@ void main() => runApp(ShopApp());
 class ShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (ctx) => Products(),
-      child:  MaterialApp(
+    return ChangeNotifierProvider.value(
+      value: Products(),
+      child: MaterialApp(
         title: "ShopApp",
         theme: ThemeData(
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
-          
         ),
         home: ProductOverviewScreen(),
-        routes: {
-          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()
-        },),
+        routes: {ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()},
+      ),
     );
   }
 }
