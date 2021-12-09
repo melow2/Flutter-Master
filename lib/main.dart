@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_flutter/models/product.dart';
 import 'package:quiz_flutter/screens/product_detail_screen.dart';
 import 'package:quiz_flutter/screens/products_overview_screen.dart';
 

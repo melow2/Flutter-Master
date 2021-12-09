@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /**
  * 상품
  *
  */
-class Product {
+class Product with ChangeNotifier{
   final String id;
   final String title;
   final String description;
@@ -17,4 +19,10 @@ class Product {
       required this.description,
       required this.price,
       required this.imageUrl});
+
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
+  
 }
