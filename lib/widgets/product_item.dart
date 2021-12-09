@@ -10,8 +10,6 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final productId = ModalRoute.of(context).settings.arguments as String;
-
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
