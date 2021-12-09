@@ -3,6 +3,7 @@ import 'package:quiz_flutter/models/product.dart';
 import 'package:quiz_flutter/widgets/product_item.dart';
 
 class ProductOverviewScreen extends StatelessWidget {
+  
   final List<Product> loadedProducts = [
     Product(
       id: 'p1',

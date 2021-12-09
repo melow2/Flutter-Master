@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_flutter/screens/product_detail_screen.dart';
 import 'package:quiz_flutter/screens/products_overview_screen.dart';
 
 void main() => runApp(ShopApp());
@@ -15,6 +16,9 @@ class ShopApp extends StatelessWidget {
           fontFamily: 'Lato',
           
         ),
-        home: ProductOverviewScreen());
+        home: ProductOverviewScreen(),
+        routes: {
+          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()
+        },);
   }
 }
