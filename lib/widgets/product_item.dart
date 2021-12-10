@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_flutter/providers/cart.dart';
 import 'package:quiz_flutter/providers/product.dart';
 import 'package:quiz_flutter/screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final productData = Provider.of<Product>(context,listen: false);
+
+    final productData = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
+
     print("product rebuild() #1");
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
@@ -32,7 +36,9 @@ class ProductItem extends StatelessWidget {
             ),
             title: Text(productData.title, textAlign: TextAlign.center),
             trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  cart.addItem(productData.id,productData.price, productData.title);
+                },
                 icon: Icon(Icons.shopping_cart),
                 color: Theme.of(context).accentColor),
           )),

@@ -5,7 +5,7 @@ class Products with ChangeNotifier {
   
   // var _showFavoritesOnly = false;
 
-  List<Product> _items = [
+  final List<Product> _items = [
     Product(
       id: 'p1',
       title: '빨강 빨강, 빨강셔츠!',

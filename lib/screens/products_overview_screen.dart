@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_flutter/providers/cart.dart';
+import 'package:quiz_flutter/widgets/badge.dart';
 import 'package:quiz_flutter/widgets/product_grid.dart';
 
 enum FilterOption { Favorites, All }
@@ -13,7 +16,6 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("overview screen rebuild()");
     return Scaffold(
         appBar: AppBar(
           title: const Text('MyShop'),
@@ -36,6 +38,18 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                       const PopupMenuItem(
                           child: Text('모두 보기.'), value: FilterOption.All)
                     ]),
+            Consumer<Cart>(
+              builder: (_, cartData,ch) => Badge(
+                value: cartData.itemCount.toString(),
+                child: ch, 
+              ),
+              child: IconButton(
+                  icon: Icon(Icons.shopping_cart),
+                  onPressed: () {
+                    
+                  },
+                ),
+            )
           ],
         ),
         body: ProductsGrid(_showOnlyFavorites));

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_flutter/providers/cart.dart';
 import 'package:quiz_flutter/screens/product_detail_screen.dart';
 import 'package:quiz_flutter/screens/products_overview_screen.dart';
 
@@ -11,8 +12,11 @@ void main() => runApp(ShopApp());
 class ShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (ctx) => Products(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => Products()),
+        ChangeNotifierProvider(create: (ctx) => Cart())
+      ],
       child: MaterialApp(
         title: "ShopApp",
         theme: ThemeData(
