@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_flutter/providers/product.dart';
 
 class Products with ChangeNotifier {
+  
+  // var _showFavoritesOnly = false;
+
   List<Product> _items = [
     Product(
       id: 'p1',
@@ -38,12 +41,29 @@ class Products with ChangeNotifier {
   ];
 
   List<Product> get items {
+    // if(_showFavoritesOnly){
+    //   return _items.where((element) => element.isFavorite).toList();
+    // }
     return [..._items]; // ...은 하나씩 빼서 리턴해줌.
+  }
+
+  List<Product> get favoriteItems {
+    return _items.where((element) => element.isFavorite).toList();
   }
 
   Product findById(String id) {
     return _items.firstWhere((element) => element.id == id);
   }
+
+  // void showFavoritesOnly(){
+  //   _showFavoritesOnly = true;
+  //   notifyListeners();
+  // }
+
+  // void showAll(){
+  //   _showFavoritesOnly = false;
+  //   notifyListeners();
+  // }
 
   void addProduct() {
     notifyListeners();
