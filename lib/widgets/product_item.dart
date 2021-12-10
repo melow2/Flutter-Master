@@ -7,9 +7,8 @@ import 'package:quiz_flutter/screens/product_detail_screen.dart';
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final productData = Provider.of<Product>(context, listen: false);
-    final cart = Provider.of<Cart>(context, listen: false);
+    final productCart = Provider.of<Cart>(context,listen:true);
 
     print("product rebuild() #1");
     return ClipRRect(
@@ -35,12 +34,15 @@ class ProductItem extends StatelessWidget {
                   color: Theme.of(context).accentColor),
             ),
             title: Text(productData.title, textAlign: TextAlign.center),
-            trailing: IconButton(
-                onPressed: () {
-                  cart.addItem(productData.id,productData.price, productData.title);
-                },
-                icon: Icon(Icons.shopping_cart),
-                color: Theme.of(context).accentColor),
+            trailing: Consumer<Cart>(
+              builder: (ctx, cart, child) => IconButton(
+                  onPressed: () {
+                    productCart.addItem(
+                        productData.id, productData.price, productData.title);
+                  },
+                  icon: Icon(Icons.shopping_cart),
+                  color: Theme.of(context).accentColor),
+            ),
           )),
     );
   }
