@@ -23,8 +23,8 @@ class Cart with ChangeNotifier {
   double get totalAmount {
     var total = 0.0;
     _items.forEach((key, cartItem) {
-      total+=cartItem.price * cartItem.quantity;
-     });
+      total += cartItem.price * cartItem.quantity;
+    });
     return total;
   }
 
@@ -50,6 +50,11 @@ class Cart with ChangeNotifier {
               quantity: 1,
               price: price));
     }
+    notifyListeners();
+  }
+
+  void removeItem(String productId) {
+    _items.remove(productId);
     notifyListeners();
   }
 }
