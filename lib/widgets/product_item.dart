@@ -8,7 +8,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productData = Provider.of<Product>(context, listen: false);
-    final productCart = Provider.of<Cart>(context,listen:true);
+    // final productCart = Provider.of<Cart>(context,listen:false);
 
     print("product rebuild() #1");
     return ClipRRect(
@@ -37,7 +37,7 @@ class ProductItem extends StatelessWidget {
             trailing: Consumer<Cart>(
               builder: (ctx, cart, child) => IconButton(
                   onPressed: () {
-                    productCart.addItem(
+                    cart.addItem(
                         productData.id, productData.price, productData.title);
                   },
                   icon: Icon(Icons.shopping_cart),

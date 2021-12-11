@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_flutter/providers/cart.dart';
+import 'package:quiz_flutter/screens/cart_screen.dart';
 import 'package:quiz_flutter/screens/product_detail_screen.dart';
 import 'package:quiz_flutter/screens/products_overview_screen.dart';
 
@@ -25,7 +26,10 @@ class ShopApp extends StatelessWidget {
           fontFamily: 'Lato',
         ),
         home: ProductOverviewScreen(),
-        routes: {ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()},
+        routes: {
+          CartScreen.routeName: (ctx) => CartScreen(),
+          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()
+          },
       ),
     );
   }
