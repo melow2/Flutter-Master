@@ -26,7 +26,7 @@ class ShopApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
-          fontFamily: 'Lato',
+          fontFamily: 'Lato',MaterialPageRoute
         ),
         home: ProductOverviewScreen(),
         routes: {
