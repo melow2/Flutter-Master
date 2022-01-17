@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'home/HomeScreen.dart';
+import 'home/home_screen.dart';
 
 const kPrimaryColor = Color(0xFFA95EFA);
 const kSecondaryColor = Color(0xFFF3F6F8);

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../data/Constants.dart';
 import '../data/SizeConfig.dart';
-import 'Body.dart';
+import 'body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
