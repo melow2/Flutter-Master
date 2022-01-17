@@ -30,6 +30,7 @@ class FurnitureApp extends StatelessWidget {
           ),
           visualDensity: VisualDensity.adaptivePlatformDensity
       ),
+      home: HomeScreen(),
     );
   }
 }
