@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../component/TitleText.dart';
 import '../data/SizeConfig.dart';
 import '../models/Categories.dart';
+import '../services/fetchCategories.dart';
+import 'categories.dart';
 import 'category_card.dart';
 
 class Body extends StatelessWidget {
@@ -21,14 +23,16 @@ class Body extends StatelessWidget {
             padding: EdgeInsets.all(defaultSize * 2),
             child: TitleText(title: "Browse by Categories"),
           ),
-          SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CategoryCard(category: category),
-                  CategoryCard(category: category),
-                  CategoryCard(category: category)],
-              ))
+          FutureBuilder<List<Category>>(
+              future: fetchCategories(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  var data = snapshot.data ?? List.empty();
+                  return Categories(categories: data,);
+                } else {
+                  return const CircularProgressIndicator();
+                }
+              })
         ],
       ),
     );
