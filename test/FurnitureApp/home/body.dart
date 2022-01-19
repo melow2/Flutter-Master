@@ -34,7 +34,8 @@ class Body extends StatelessWidget {
                     child: Image.asset("assets/ripple.gif"),
                   );
                 }
-              })
+              }),
+          Divider(height: 5,)
         ],
       ),
     );
