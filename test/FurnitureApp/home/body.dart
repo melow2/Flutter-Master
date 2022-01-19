@@ -27,10 +27,12 @@ class Body extends StatelessWidget {
               future: fetchCategories(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  var data = snapshot.data ?? List.empty();
-                  return Categories(categories: data,);
+                  var data = snapshot.data as List<Category>;
+                  return Categories(categories: data);
                 } else {
-                  return const CircularProgressIndicator();
+                  return Center(
+                    child: Image.asset("assets/ripple.gif"),
+                  );
                 }
               })
         ],
