@@ -35,7 +35,13 @@ class Body extends StatelessWidget {
                   );
                 }
               }),
-          Divider(height: 5,)
+          Divider(
+            height: 5,
+          ),
+          Padding(
+            padding: EdgeInsets.all(defaultSize * 2),
+            child: TitleText(title: "Recommends For You"),
+          )
         ],
       ),
     );
