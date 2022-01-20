@@ -5,8 +5,10 @@ import '../data/SizeConfig.dart';
 import '../models/Categories.dart';
 import '../models/Product.dart';
 import '../services/fetchCategories.dart';
+import '../services/fetchProducts.dart';
 import 'categories.dart';
 import 'product_card.dart';
+import 'recommend_product.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -43,12 +45,20 @@ class Body extends StatelessWidget {
             padding: EdgeInsets.all(defaultSize * 2),
             child: TitleText(title: "Recommends For You"),
           ),
-          ProductCard(
-              product: product,
-              press: () {
+          FutureBuilder<List<Product>>(
+            future: fetchProducts(),
+              builder: (context,snapshot){
+              if(snapshot.hasData){
+                var data = snapshot.data as List<Product>;
+                return RecommendProduct(products: data);
+              }else return Center(
+                child: Image.asset("assets/ripple.gif"),
+              );
           })
+     
         ],
       ),
     );
   }
 }
+
