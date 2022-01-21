@@ -23,7 +23,7 @@ class RecommendProduct extends StatelessWidget {
           physics: NeverScrollableScrollPhysics() ,
           itemCount: products.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+              crossAxisCount: SizeConfig.orientation == Orientation.portrait ? 2: 4,
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
               childAspectRatio: 0.693
