@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../data/Constants.dart';
 import '../models/Product.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -9,6 +11,16 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: kSecondaryColor,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/arrow-long-left.svg"),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
   }
 }
