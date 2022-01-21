@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/SizeConfig.dart';
+import '../detail/details_screen.dart';
 import '../models/Product.dart';
 import 'product_card.dart';
 
@@ -28,7 +29,11 @@ class RecommendProduct extends StatelessWidget {
               crossAxisSpacing: 20,
               childAspectRatio: 0.693
           ),
-          itemBuilder: (context, index) => ProductCard(product: products[index], press: (){})
+          itemBuilder: (context, index) => ProductCard(product: products[index], press: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return DetailScreen(product: products[index]);
+            }));
+          })
       ),
     );
   }
