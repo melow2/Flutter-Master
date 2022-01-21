@@ -20,6 +20,12 @@ class DetailScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+              onPressed: (){}, 
+              icon: SvgPicture.asset("assets/icons/bag.svg")
+          )
+        ],
       ),
     );
   }
