@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../data/Constants.dart';
+import '../data/SizeConfig.dart';
 import '../models/Product.dart';
+import 'details_body.dart';
 
 class DetailScreen extends StatelessWidget {
   final Product product;
@@ -11,6 +13,7 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: AppBar(
@@ -27,6 +30,7 @@ class DetailScreen extends StatelessWidget {
           )
         ],
       ),
+      body: DetailBody(product: product),
     );
   }
 }
