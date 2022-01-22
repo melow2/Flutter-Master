@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+import '../data/SizeConfig.dart';
 import '../models/Product.dart';
 import 'details_product_description.dart';
 import 'details_product_info.dart';
@@ -12,16 +12,25 @@ class DetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = SizeConfig.defaultSize!;
     return SingleChildScrollView(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        DetailProductInfo(product: product),
-        ProductDescription(
-          product: product,
-          press: () {},
-        )
-      ],
+        child: SizedBox(
+      width: double.infinity,
+      height: SizeConfig.screenHeight,
+      child: Stack(
+        children: [
+          DetailProductInfo(product: product),
+          Positioned(
+            top: defaultSize * 33.5,
+            left: 0,
+            right: 0,
+            child: ProductDescription(
+              product: product,
+              press: () {},
+            ),
+          ),
+        ],
+      ),
     ));
   }
 }
