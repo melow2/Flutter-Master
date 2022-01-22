@@ -29,6 +29,18 @@ class DetailBody extends StatelessWidget {
               press: () {},
             ),
           ),
+          Positioned(
+              top: defaultSize * 3.5,
+              right: -defaultSize * 3.5,
+              child: Hero(
+                tag: product.id,
+                child: Image.network(
+                  product.image,
+                  fit: BoxFit.cover,
+                  height: defaultSize * 38.8,
+                  width: defaultSize * 33.4,
+                ),
+              ))
         ],
       ),
     ));
