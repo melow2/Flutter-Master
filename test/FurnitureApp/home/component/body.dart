@@ -27,10 +27,13 @@ class Body extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                  AspectRatio(
-                    aspectRatio: 1 / 0.8,
-                    child: Container(
-                      color: Colors.blueGrey,
+                  ClipPath(
+                    clipper: CategoryCustomShape(),
+                    child: AspectRatio(
+                      aspectRatio: 1 / 0.8,
+                      child: Container(
+                        color: Colors.blueGrey,
+                      ),
                     ),
                   )
                 ],
