@@ -23,39 +23,8 @@ class Body extends StatelessWidget {
           Container(
             width: defaultSize * 20.5,
             height: defaultSize * 23.5,
-            child: Stack(alignment: Alignment.bottomCenter, children: [
-              ClipPath(
-                clipper: CategoryCustomShape(),
-                child: AspectRatio(
-                  aspectRatio: 1.2 / 1,
-                  child: Container(
-                    padding: EdgeInsets.all(defaultSize * 2),
-                    color: kSecondaryColor,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TitleText(
-                          title: category.title,
-                        ),
-                        SizedBox(height: defaultSize),
-                        Text(
-                          "${category.numOfProducts} + Products",
-                          style: TextStyle(color: kTextColor.withOpacity(0.6)),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                  top: 0,
-                  right: 0,
-                  left: 0,
-                  child: AspectRatio(
-                    aspectRatio: 1.15,
-                    child: FadeInImage.assetNetwork(placeholder: "assets/spinner.gif", image: category.image),
-                  ))
-            ]),
+            color: Colors.blueAccent,
+            child: Container(),
           )
         ],
       ),
