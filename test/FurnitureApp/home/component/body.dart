@@ -21,11 +21,20 @@ class Body extends StatelessWidget {
             ),
           ),
           Container(
-            width: defaultSize * 20.5,
-            height: defaultSize * 23.5,
-            color: Colors.blueAccent,
-            child: Container(),
-          )
+              width: defaultSize * 20.5,
+              height: defaultSize * 23.5,
+              color: Colors.blueAccent,
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  AspectRatio(
+                    aspectRatio: 1 / 0.8,
+                    child: Container(
+                      color: Colors.blueGrey,
+                    ),
+                  )
+                ],
+              ))
         ],
       ),
     );
