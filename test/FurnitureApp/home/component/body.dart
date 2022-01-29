@@ -26,14 +26,7 @@ class Body extends StatelessWidget {
           ),
           FutureBuilder<List<Category>>(
               future: fetchCategories(),
-              builder: (context, snapshot) {
-                var isExist = snapshot.hasData;
-                if (isExist) {
-                  return Categories(categories: snapshot.data!);
-                } else {
-                  return const CircularProgressIndicator();
-                }
-              })
+              builder: (context, snapshot) => snapshot.hasData? Categories(categories: snapshot.data!):Center(child: CircularProgressIndicator()))
         ],
       ),
     );
