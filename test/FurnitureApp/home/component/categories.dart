@@ -16,7 +16,10 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(children: List.generate(categories.length, (index) => CategoryCard(category: categories[index]))),
+      child: Row(
+          children: List.generate(
+              categories.length,
+                  (index) => CategoryCard(category: categories[index]))),
     );
   }
 }

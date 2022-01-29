@@ -29,7 +29,12 @@ class Body extends StatelessWidget {
               future: fetchCategories(),
               builder: (context, snapshot) => snapshot.hasData
                   ? Categories(categories: snapshot.data!)
-                  : Center(child: Image.asset("assets/ripple.gif")))
+                  : Center(child: Image.asset("assets/ripple.gif"))),
+          Divider(height: 5,),
+          Padding(
+            padding: EdgeInsets.all(defaultSize * 2),
+            child: TitleText(title: "Recommends For You"),
+          )
         ],
       ),
     );
