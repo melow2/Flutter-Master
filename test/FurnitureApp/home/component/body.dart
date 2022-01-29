@@ -6,6 +6,7 @@ import '../../data/SizeConfig.dart';
 import '../../models/Categories.dart';
 import '../../service/fetchCategories.dart';
 import '../../widget/title_text.dart';
+import 'categories.dart';
 import 'category_card.dart';
 
 class Body extends StatelessWidget {
@@ -26,26 +27,11 @@ class Body extends StatelessWidget {
           ),
           FutureBuilder<List<Category>>(
               future: fetchCategories(),
-              builder: (context, snapshot) => snapshot.hasData? Categories(categories: snapshot.data!):Center(child: CircularProgressIndicator()))
+              builder: (context, snapshot) => snapshot.hasData
+                  ? Categories(categories: snapshot.data!)
+                  : Center(child: Image.asset("assets/ripple.gif")))
         ],
       ),
-    );
-  }
-}
-
-class Categories extends StatelessWidget {
-  Categories({
-    Key? key,
-    required this.categories,
-  }) : super(key: key);
-
-  final List<Category> categories;
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(children: List.generate(categories.length, (index) => CategoryCard(category: categories[index]))),
     );
   }
 }
