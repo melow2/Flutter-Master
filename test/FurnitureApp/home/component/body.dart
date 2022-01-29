@@ -35,7 +35,12 @@ class Body extends StatelessWidget {
                         color: Colors.blueGrey,
                       ),
                     ),
-                  )
+                  ),
+                  Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: FadeInImage.assetNetwork(placeholder: "assets/spinner.gif", image: category.image))
                 ],
               ))
         ],
