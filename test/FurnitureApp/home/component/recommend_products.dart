@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../data/SizeConfig.dart';
@@ -22,8 +21,11 @@ class RecommendProducts extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: products.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 1 / 1.4, mainAxisSpacing: 20, crossAxisSpacing: 20),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: SizeConfig.orientation! == Orientation.portrait ? 2 : 4,
+              childAspectRatio: 1 / 1.4,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20),
           itemBuilder: (context, index) => ProductCard(product: products[index], press: () {})),
     );
   }
