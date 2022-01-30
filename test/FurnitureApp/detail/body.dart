@@ -21,8 +21,8 @@ class Body extends StatelessWidget {
           children: [
             ProductInfo(product: product),
             Container(
+              constraints: BoxConstraints(minHeight: defaultSize * 44),
               padding: EdgeInsets.only(top: defaultSize * 9, left: defaultSize * 2, right: defaultSize * 2),
-              height: 500,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
