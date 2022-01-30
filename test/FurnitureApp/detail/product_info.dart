@@ -49,19 +49,25 @@ class ProductInfo extends StatelessWidget {
           "Available Colors",
           style: lightTextStyle,
         ),
-        buildColorBox(defaultSize)
+            Row(
+              children: [
+                buildColorBox(defaultSize, isActive: true, color: Color(0xFF7BA275)),
+                buildColorBox(defaultSize, isActive: false, color: Color(0xFFD7D7D7)),
+                buildColorBox(defaultSize, isActive: false, color: kTextColor)
+              ],
+            )
       ]),
     );
   }
 
-  Container buildColorBox(double defaultSize) {
+  Container buildColorBox(double defaultSize, {required Color color, required bool isActive}) {
     return Container(
-        margin: EdgeInsets.only(top: defaultSize, right: defaultSize),
-        padding: EdgeInsets.all(5),
-        height: defaultSize * 2.4,
-        width: defaultSize * 2.4,
-        decoration: BoxDecoration(color: Color(0xFF7BA275), borderRadius: BorderRadius.circular(6)),
-        child: SvgPicture.asset("assets/icons/check.svg"),
-      );
+      margin: EdgeInsets.only(top: defaultSize, right: defaultSize),
+      padding: EdgeInsets.all(5),
+      height: defaultSize * 2.4,
+      width: defaultSize * 2.4,
+      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(6)),
+      child: isActive ? SvgPicture.asset("assets/icons/check.svg") : SizedBox(),
+    );
   }
 }
