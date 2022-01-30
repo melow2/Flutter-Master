@@ -9,6 +9,7 @@ import '../../service/fetchCategories.dart';
 import '../../widget/title_text.dart';
 import 'categories.dart';
 import 'category_card.dart';
+import 'product_card.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -38,33 +39,7 @@ class Body extends StatelessWidget {
             padding: EdgeInsets.all(defaultSize * 2),
             child: const TitleText(title: "Recommends For You"),
           ),
-          Padding(
-            padding:  EdgeInsets.all(defaultSize *2 ),
-            child: Container(
-              width: defaultSize * 13.5,
-              height: defaultSize * 20.5,
-              decoration: BoxDecoration(color: kSecondaryColor, borderRadius: BorderRadius.circular(30)),
-              child: Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: FadeInImage.assetNetwork(
-                      placeholder: "assets/spinner.gif",
-                      image: product.image,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: defaultSize),
-                    child: TitleText(title: product.title,),
-                  ),
-                  SizedBox(height: defaultSize /2 ,),
-                  Text("\$${product.price}"),
-                  Spacer()
-                ],
-              ),
-            ),
-          )
+          ProductCard(product: product, press: () { },)
         ],
       ),
     );
