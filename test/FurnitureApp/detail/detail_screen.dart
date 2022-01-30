@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../data/Constants.dart';
 import '../data/SizeConfig.dart';
 import '../models/Product.dart';
+import 'body.dart';
 
 class DetailScreen extends StatelessWidget {
   final Product product;
@@ -16,6 +17,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: buildAppBar(context),
+      body: Body(product: product,),
     );
   }
 
