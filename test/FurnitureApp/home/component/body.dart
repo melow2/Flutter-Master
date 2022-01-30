@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import '../../data/Constants.dart';
 import '../../data/SizeConfig.dart';
 import '../../models/Categories.dart';
 import '../../models/Product.dart';
@@ -9,8 +8,6 @@ import '../../service/fetchCategories.dart';
 import '../../service/fetchProducts.dart';
 import '../../widget/title_text.dart';
 import 'categories.dart';
-import 'category_card.dart';
-import 'product_card.dart';
 import 'recommend_products.dart';
 
 class Body extends StatelessWidget {
