@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import '../../data/Constants.dart';
 import '../../data/SizeConfig.dart';
 import '../../models/Categories.dart';
+import '../../models/Product.dart';
 import '../../service/fetchCategories.dart';
 import '../../widget/title_text.dart';
 import 'categories.dart';
@@ -30,10 +31,24 @@ class Body extends StatelessWidget {
               builder: (context, snapshot) => snapshot.hasData
                   ? Categories(categories: snapshot.data!)
                   : Center(child: Image.asset("assets/ripple.gif"))),
-          Divider(height: 5,),
+          const Divider(height: 5,),
           Padding(
             padding: EdgeInsets.all(defaultSize * 2),
-            child: TitleText(title: "Recommends For You"),
+            child: const TitleText(title: "Recommends For You"),
+          ),
+          Container(
+            width: defaultSize * 14.5,
+            decoration: BoxDecoration(
+              color: kSecondaryColor,
+              borderRadius: BorderRadius.circular(20)
+            ),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: FadeInImage.assetNetwork(
+                  placeholder: "assets/spinner.gif",
+                  image: product.image
+              ),
+            ),
           )
         ],
       ),
