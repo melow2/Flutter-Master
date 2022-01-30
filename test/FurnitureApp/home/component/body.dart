@@ -31,22 +31,37 @@ class Body extends StatelessWidget {
               builder: (context, snapshot) => snapshot.hasData
                   ? Categories(categories: snapshot.data!)
                   : Center(child: Image.asset("assets/ripple.gif"))),
-          const Divider(height: 5,),
+          const Divider(
+            height: 5,
+          ),
           Padding(
             padding: EdgeInsets.all(defaultSize * 2),
             child: const TitleText(title: "Recommends For You"),
           ),
-          Container(
-            width: defaultSize * 14.5,
-            decoration: BoxDecoration(
-              color: kSecondaryColor,
-              borderRadius: BorderRadius.circular(20)
-            ),
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: FadeInImage.assetNetwork(
-                  placeholder: "assets/spinner.gif",
-                  image: product.image
+          Padding(
+            padding:  EdgeInsets.all(defaultSize *2 ),
+            child: Container(
+              width: defaultSize * 13.5,
+              height: defaultSize * 20.5,
+              decoration: BoxDecoration(color: kSecondaryColor, borderRadius: BorderRadius.circular(30)),
+              child: Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: FadeInImage.assetNetwork(
+                      placeholder: "assets/spinner.gif",
+                      image: product.image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: defaultSize),
+                    child: TitleText(title: product.title,),
+                  ),
+                  SizedBox(height: defaultSize /2 ,),
+                  Text("\$${product.price}"),
+                  Spacer()
+                ],
               ),
             ),
           )
