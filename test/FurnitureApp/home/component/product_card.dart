@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Padding(
-        padding:  EdgeInsets.all(defaultSize *2 ),
+        padding:  EdgeInsets.all(0),
         child: Container(
           width: defaultSize * 13.5,
           height: defaultSize * 20.5,

@@ -39,7 +39,20 @@ class Body extends StatelessWidget {
             padding: EdgeInsets.all(defaultSize * 2),
             child: const TitleText(title: "Recommends For You"),
           ),
-          ProductCard(product: product, press: () { },)
+          Padding(
+            padding: EdgeInsets.all(defaultSize * 2),
+            child: GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 4,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1 / 1.4,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20
+                ),
+                itemBuilder: (context, index) => ProductCard(product: product, press: () {})),
+          )
         ],
       ),
     );
