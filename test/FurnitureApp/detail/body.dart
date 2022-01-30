@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../data/Constants.dart';
 import '../data/SizeConfig.dart';
 import '../models/Product.dart';
 import 'product_info.dart';
@@ -16,8 +15,18 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ProductInfo(product: product),
+            Container(
+              height: 500,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(defaultSize * 1.2),
+                    topRight: Radius.circular(defaultSize * 1.2))
+              ),
+            )
           ],
         ),
       ),
